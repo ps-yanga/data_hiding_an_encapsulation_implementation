@@ -32,3 +32,7 @@ class Fan:
 
     def set_on(self, on):
         self.on = on
+
+    def __str__(self):
+        status="on" if self.on else "off"
+        return f"fan(speed={self.speed}, radius={self.radius}, color={self.color}, on={self.on})"
