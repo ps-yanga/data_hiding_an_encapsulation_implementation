@@ -1,9 +1,9 @@
 class Fan:
-    slow = 1
-    medium = 2
-    fast = 3
+    SLOW = 1
+    MEDIUM = 2
+    FAST = 3
 
-    def __init__(self, speed=slow, radius=5, color="blue", on=False):
+    def __init__(self, speed=SLOW, radius=5, color="blue", on=False):
         self._speed = speed
         self._radius = radius
         self._color = color
@@ -15,7 +15,7 @@ class Fan:
 
     @speed.setter
     def speed(self, value):
-        if value in [self.slow, self.medium, self.fast]:
+        if value in [self.SLOW, self.MEDIUM, self.FAST]:
             self._speed = value
         else:
             print(f"Invalid speed: {value}")
