@@ -1,28 +1,38 @@
 from fan_class_setting import Fan
 
 fan1=Fan()
-fan1.set_speed(Fan.fast)
-fan1.set_radius(10)
-fan1.set_color("yellow")
-fan1.set_on(True)
+fan1.speed=Fan.fast
+fan1.radius=10
+fan1.color="yellow"
+fan1.on=True
 
 fan2=Fan()
-fan2.set_speed(Fan.medium)
-fan2.set_radius(5)
-fan2.set_color("blue")
-fan2.set_on(False)
+fan2.speed=Fan.medium
+fan2.radius=5
+fan2.color="blue"
+fan2.on=False
 
-print("fan1: ")
-print(f"   Speed: {fan1.get_speed()}")
-print(f"   Radius: {fan1.get_radius()}")
-print(f"   Color: {fan1.get_color()}")
-print(f"   On: {fan1.get_on()}")
+print("fan 1: ")
+print(f"   Speed: {fan1.speed}")
+print(f"   Radius: {fan1.radius}")
+print(f"   Color: {fan1.color}")
+print(f"   On: {fan1.on}")
 
-print("\nfan2: ")
-print(f"   Speed: {fan2.get_speed()}")
-print(f"   Radius: {fan2.get_radius()}")
-print(f"   Color: {fan2.get_color()}")
-print(f"   On: {fan2.get_on()}")
+print("\nfan 2: ")
+print(f"   Speed: {fan2.speed}")
+print(f"   Radius: {fan2.radius}")
+print(f"   Color: {fan2.color}")
+print(f"   On: {fan2.on}")
+
+print("\nTesting Validation")
+print("Trying to set invalid speed(5): ")
+fan1.speed=5
+
+print("\nTrying to set invalid radius(-10): ")
+fan1.radius=-10
+
+print("\nTrying to set invalid on value('yes'): ")
+fan1.on="yes"
 
 print("\nUsing __str__ method")
 print(fan1)
