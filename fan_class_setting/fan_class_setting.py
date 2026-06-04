@@ -4,35 +4,52 @@ class Fan:
     fast = 3
 
     def __init__(self, speed=slow, radius=5, color="blue", on=False):
-        self.speed = speed
-        self.radius = radius
-        self.color = color
-        self.on = on
+        self._speed = speed
+        self._radius = radius
+        self._color = color
+        self._on = on
 
-    def get_speed(self):
-        return self.speed
+    @property
+    def speed(self):
+        return self._speed
 
-    def get_radius(self):
-        return self.radius
+    @speed.setter
+    def speed(self, value):
+        if value in [self.slow, self.medium, self.fast]:
+            self._speed = value
+        else:
+            print(f"Invalid speed: {value}")
 
-    def get_color(self):
-        return self.color
+    @property
+    def radius(self):
+        return self._radius
 
-    def get_on(self):
-        return self.on
+    @radius.setter
+    def radius(self, value):
+        if value>0:
+            self._radius = value
+        else:
+            print(f"Invalid radius: {value}")
 
-    def set_speed(self, speed):
-        self.speed = speed
+    @property
+    def color(self):
+        return self._color
 
-    def set_radius(self, radius):
-        self.radius = radius
+    @color.setter
+    def color(self, value):
+        self._color = value
 
-    def set_color(self, color):
-        self.color = color
+    @property
+    def on(self):
+        return self._on
 
-    def set_on(self, on):
-        self.on = on
+    @on.setter
+    def on(self, value):
+        if isinstance(value, bool):
+            self._on = value
+        else:
+            print(f"Invalid on: {value}")
 
     def __str__(self):
         status="on" if self.on else "off"
-        return f"fan(speed={self.speed}, radius={self.radius}, color={self.color}, on={self.on})"
+        return f"fan(speed={self._speed}, radius={self._radius}, color={self._color}, on={status})"
