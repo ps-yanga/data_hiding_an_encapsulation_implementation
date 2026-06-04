@@ -1,15 +1,15 @@
 from fan_class_setting import Fan
 
 fan1=Fan()
-fan1.speed=Fan.fast
+fan1.speed=Fan.FAST
 fan1.radius=10
-fan1.color="yellow"
+fan1.color="\033[33myellow\033[0m"
 fan1.on=True
 
 fan2=Fan()
-fan2.speed=Fan.medium
+fan2.speed=Fan.MEDIUM
 fan2.radius=5
-fan2.color="blue"
+fan2.color="\033[34mblue\033[0m"
 fan2.on=False
 
 print("fan 1: ")
