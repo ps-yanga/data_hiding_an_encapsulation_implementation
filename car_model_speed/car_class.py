@@ -7,14 +7,24 @@ class Car:
     def get_year_model(self):
         return self._year_model
 
+    def get_make(self):
+        return self._make
+
+    def get_speed(self):
+        return self._speed
+
+    def set_speed(self,speed):
+        if speed<0:
+            print("Error")
+            self._speed=0
+            
     def accelerate(self):
         self._speed+=15
 
     def brake(self):
         self._speed-=5
 
-    def get_speed(self):
-        return self._speed
+
 
 mi_car=Car(2024, "Mazda")
 print("Accelerating: ")
