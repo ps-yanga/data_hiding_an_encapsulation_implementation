@@ -1,11 +1,11 @@
-from markdown_it.presets.commonmark import make
-
-
 class Car:
     def __init__(self, year_model,make):
         self._year_model=year_model
         self._make=make
         self._speed=0
+
+    def get_year_model(self):
+        return self._year_model
 
     def accelerate(self):
         self._speed+=15
