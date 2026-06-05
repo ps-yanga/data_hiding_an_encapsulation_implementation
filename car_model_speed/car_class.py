@@ -7,6 +7,18 @@ class Car:
     def get_year_model(self):
         return self._year_model
 
+    def set_year_model(self,year_model):
+        if year_model>0:
+            self._year_model=year_model
+        else:
+            print("Error")
+
+    def set_make(self,make):
+        if make !="":
+            self._make=make
+        else:
+            print("Error")
+
     def get_make(self):
         return self._make
 
@@ -17,22 +29,9 @@ class Car:
         if speed<0:
             print("Error")
             self._speed=0
-            
+
     def accelerate(self):
         self._speed+=15
 
     def brake(self):
         self._speed-=5
-
-
-
-mi_car=Car(2024, "Mazda")
-print("Accelerating: ")
-for i in range(5):
-    mi_car.accelerate()
-    print(f"Speed after acceleration {i+1}: {mi_car.get_speed()} mph")
-
-print("\nBraking: ")
-for i in range(5):
-    mi_car.brake()
-    print(f"Speed after braking {i+1}: {mi_car.get_speed()} mph")
