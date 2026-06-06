@@ -13,4 +13,11 @@ class Pet:
     def set_age(self, age):
         self._age = age
 
-    
+    def get_name(self):
+        return self._name
+
+    def get_animal_type(self):
+        return self._animal_type
+
+    def get_age(self):
+        return self._age
