@@ -42,11 +42,11 @@ def pawrents():
                     print(f"   Age: {pet.get_age()}")
 
         elif choice == "3":
-            pets_list = load_pets()
+            pets_list = Pet.load_pets()
 
         elif choice == "4":
             if pets_list:
-                save_pets(pets_list)
+                Pet.save_pets(pets_list)
             else:
                 print("No pets to save.")
 
