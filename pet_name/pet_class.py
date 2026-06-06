@@ -1,7 +1,7 @@
 import json
 
 class Pet:
-    def __int__(self):
+    def __init__(self):
         self._name=""
         self._animal_type=""
         self._age=0
@@ -38,19 +38,21 @@ class Pet:
             "age": self._age}
 
     def from_dict(self, data):
-        self._owner_name = data.get["owner_name",""]
-        self._name = data.get["pet_name",""]
-        self._animal_type = data.get["animal_type", ""]
-        self._age = data.get["age", 0]
+        self._owner_name = data.get("owner_name","")
+        self._name = data.get("pet_name","")
+        self._animal_type = data.get("animal_type", "")
+        self._age = data.get("age", 0)
 
+    @staticmethod
     def save_pets(pets_list, filename="pets_data.json"):
         try:
             with open(filename, 'w') as f:
                 json.dump([pet.to_dict() for pet in pets_list], f, indent=4)
-            print(f"✓ {len(pets_list)} pet(s) saved to '{filename}'")
+            print(f"{len(pets_list)} pet(s) saved to '{filename}'")
         except Exception as e:
-            print(f"✗ Error saving pets: {e}")
+            print(f" Error saving pets: {e}")
 
+    @staticmethod
     def load_pets(filename="pets_data.json"):
         try:
             with open(filename, 'r') as f:
@@ -60,11 +62,11 @@ class Pet:
                 pet = Pet()
                 pet.from_dict(pet_data)
                 pets.append(pet)
-            print(f"✓ {len(pets)} pet(s) loaded from '{filename}'")
+            print(f"{len(pets)} pet(s) loaded from '{filename}'")
             return pets
         except FileNotFoundError:
             print(f"File '{filename}' not found.")
             return []
         except Exception as e:
-            print(f" Error loading pets: {e}")
+            print(f"✗ Error loading pets: {e}")
             return []
